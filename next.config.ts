@@ -1,11 +1,13 @@
-import type { NextConfig } from 'next';
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'export',
+  distDir: 'out', // Папка для экспорта
   images: {
-    unoptimized: true,
-    domains: ['example.com'], // Замените на реальные домены ваших изображений
+    unoptimized: true, // Обязательно для GitHub Pages
   },
-  // Больше никакого output: 'export'!
+  // Отключаем все лишнее
+  reactStrictMode: false,
+  swcMinify: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;

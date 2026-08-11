@@ -2,7 +2,7 @@ import Link from "next/link";
 import { HomeCryptoWidget } from "@/components/HomeCryptoWidget";
 import { LiveClock } from "@/components/LiveClock";
 
-export const dynamic = "force-dynamic";
+export const dynamic = "force-static";
 
 /** Крупные карточки — главные разделы */
 const HERO_CARDS = [

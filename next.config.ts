@@ -1,18 +1,14 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  // УДАЛИТЕ ЭТУ СТРОКУ (она мешает динамическому рендерингу):
-  // output: 'export',
-
+  // УБРАЛИ output: 'export' - это главная причина ошибок
   images: {
-    unoptimized: true,
-    domains: ['example.com'], // Замените на реальные домены ваших изображений
+    unoptimized: true, // Оставляем для статического экспорта
+    domains: ['example.com'], // Замените на реальные домены изображений
   },
-
-  // Дополнительные настройки для лучшей совместимости
-  experimental: {
-    serverActions: true,
-  },
+  // Настройки для кэша (убирает предупреждение)
+  cacheHandler: require.resolve('next/dist/server/lib/simple-cache-handler'),
+  cacheMaxMemorySize: 0,
 };
 
 export default nextConfig;

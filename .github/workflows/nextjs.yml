@@ -30,6 +30,8 @@ jobs:
           static_site_generator: next
       - name: Install dependencies
         run: npm install --force
+      - name: Remove API routes for static deploy
+        run: rm -rf src/app/api
       - name: Build with Next.js
         run: npx next build
         env:
